@@ -1,9 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Configuration;
 
-namespace Desafio_02__2.Models
+namespace Desafio_02_02.Models
 {
-    public class Utilizador
+    public class User
     {
         [Required(ErrorMessage = "ERRO :: Este campo é necessário!")]
         public string username { get; set; }

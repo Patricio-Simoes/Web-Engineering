@@ -1,4 +1,4 @@
-namespace Desafio_02__2.Models
+namespace Desafio_02_02.Models
 {
     public class ErrorViewModel
     {
