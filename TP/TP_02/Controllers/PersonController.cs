@@ -64,7 +64,10 @@ namespace TP_02.Controllers
         {
             if(ModelState.IsValid)
             {
-                TempData["values"] = newPerson.Name + " [" + newPerson.Age + "]";
+                TempData["name"] = newPerson.Name;
+                TempData["age"] = newPerson.Age;
+                TempData["date"] = newPerson.Date;
+                TempData["email"] = newPerson.EmailAddress;
                 return RedirectToAction(nameof(Index));
             }
             else

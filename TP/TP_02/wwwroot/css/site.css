@@ -20,3 +20,34 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+/**/
+
+form div{
+    display: grid;
+    grid-template-columns: 150px 250px;
+    margin: 1rem auto;
+    text-align: start;
+}
+
+form div,
+form input[type="submit"],
+.max-width-container{
+    width: 400px;
+}
+
+.max-width-container{
+    margin: 0 auto;
+}
+
+form div label {
+    font-size: 1.5rem;
+    font-weight: bold;
+    grid-column: 1/2;
+}
+
+form div input{
+    font-size: 1.5rem;
+    grid-column: 2/3;
+}
+

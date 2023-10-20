@@ -1,11 +1,27 @@
 ﻿
 @{
-    ViewData["Title"] = "Index2";
+    ViewData["Title"] = "Submited Data";
 }
 
-<h1>Index2</h1>
+<div class="text-center mt-3 d-flex flex-column">
 
-Data inserted in Form
-<br />
-Name Field: @ViewData["text_inserted"]<br />
-Age Field: @ViewData["other_text_inserted"]
+    <h1>The following data was submited</h1>
+
+    <div class="max-width-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@ViewData["text_inserted"]</td>
+                    <td>@ViewData["other_text_inserted"]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

@@ -3,9 +3,30 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Formulary Submission</h1>
+<div class="text-center mt-3 d-flex flex-column">
 
-Submited with SUCCESS!!!
-<br />
-It was inserted the following data: @TempData["values"]
+    <h1>The following data was submited</h1>
+
+    <div class="max-width-container">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Birth</th>
+                    <th>E-mail</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>@TempData["name"]</td>
+                    <td>@TempData["age"]</td>
+                    <td>@TempData["date"]</td>
+                    <td>@TempData["email"]</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
 

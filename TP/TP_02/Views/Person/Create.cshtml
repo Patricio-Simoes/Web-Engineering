@@ -4,32 +4,36 @@
     ViewData["Title"] = "Create";
 }
 
-<h1>Create</h1>
+<div class="text-center mt-3 d-flex flex-column">
 
-<h4>Person</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Age" class="control-label"></label>
-                <input asp-for="Age" class="form-control" />
-                <span asp-validation-for="Age" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
+    <h1>Form submission with Person class model</h1>
 
-<div>
-    <a asp-action="Index">Back to List</a>
+    <div class="max-width-container">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div>
+                    <label asp-for="Name" class="control-label">Name:</label>
+                    <input asp-for="Name" class="form-control" placeholder="Ex. John"/>
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Age" class="control-label">Age:</label>
+                    <input asp-for="Age" class="form-control" placeholder="Ex. 21"/>
+                    <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="Date" class="control-label">Birth:</label>
+                <input asp-for="Date" class="form-control" placeholder="Ex. 08/10/1998 15:35"/>
+                <span asp-validation-for="Date" class="text-danger"></span>
+            </div>
+            <div>
+                <label asp-for="EmailAddress" class="control-label">E-mail:</label>
+                <input asp-for="EmailAddress" class="form-control" placeholder="Ex. john@mail.com"/>
+                <span asp-validation-for="EmailAddress" class="text-danger"></span>
+            </div>
+                <input type="submit" value="Submit" class="btn btn-primary" />
+            </form>
+     </div>
+
 </div>
 
