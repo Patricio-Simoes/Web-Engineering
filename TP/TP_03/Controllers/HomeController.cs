@@ -18,8 +18,16 @@ namespace TP_03.Controllers
 
         public IActionResult Index()
         {
+            long bytes = 0;
             DocFiles files = new DocFiles();
-            return View(files.GetFiles(_he));
+            var fileList = files.GetFiles(_he);
+            ViewBag.totalFiles = fileList.Count();
+            foreach(var file in fileList)
+            {
+                bytes = bytes + file.Size;
+            }
+            ViewBag.byteCount = bytes;
+            return View(fileList);
         }
 
         public IActionResult Privacy()
@@ -37,15 +45,17 @@ namespace TP_03.Controllers
             return View();
         }
         [HttpPost]
-        public IActionResult Upload(IFormFile Name)
+        public IActionResult Upload(List<IFormFile> Name)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                string destination = Path.Combine(_he.ContentRootPath,
-                    "wwwroot/Documents/", Path.GetFileName(Name.FileName));
-                FileStream fs=new FileStream(destination, FileMode.Create);
-                Name.CopyTo(fs);
-                fs.Close();
+                foreach(var file in Name)
+                {
+                    string destination = Path.Combine(_he.ContentRootPath, "wwwroot/Documents/", Path.GetFileName(file.FileName));
+                    FileStream fs = new FileStream(destination, FileMode.Create);
+                    file.CopyTo(fs);
+                    fs.Close();
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View();
@@ -57,6 +67,15 @@ namespace TP_03.Controllers
             string? mimeType;
             new FileExtensionContentTypeProvider().TryGetContentType(id, out mimeType);
             return File(fileBytes, mimeType);
+        }
+        public IActionResult Delete(string id)
+        {
+            string pathFile = Path.Combine(_he.ContentRootPath, "wwwroot/Documents/", id);
+            if (System.IO.File.Exists(pathFile))
+            {
+                System.IO.File.Delete(pathFile);
+            }
+            return RedirectToAction(nameof(Index));
         }
     }
 }

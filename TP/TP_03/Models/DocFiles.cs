@@ -2,6 +2,7 @@
 {
     public class DocFiles
     {
+        // IHostEnvironment vai buscar o caminho de diretoria do sistema até a raíz do projeto.
         public List<FileViewModel> GetFiles(IHostEnvironment e)
         {
             List<FileViewModel> list = new List<FileViewModel>();
