@@ -27,6 +27,34 @@ namespace TP_05.Data
                 _context.Category.Add(c);
             }
             _context.SaveChanges();
+
+
+            var courses = new Course[]
+            {
+                new Course
+                {
+                    Name="Web Engineering",
+                    Description = "Creating new sites using ASP.NET",
+                    Cost = 50, Credits = 6,
+                    CategoryId = categorias.Single(c=>c.Name=="Programming").Id
+                },
+                new Course
+                {
+                    Name="Strategic Leadership and Management",
+                    Description = "This Master in Corporate Communication will provide required to organize a Communication Department",
+                    Cost = 80, Credits = 10,
+                    CategoryId = categorias.Single(c=>c.Name=="Administration").Id
+                },
+                new Course
+                {
+                    Name="Master in Corporate Communication",
+                    Description = "This Master in Corporate Communication will provide required to organize a Communication Department",
+                    Cost = 80, Credits = 10,
+                    CategoryId = categorias.Single(c=>c.Name=="Communication").Id
+                }
+            };
+                _context.Course.AddRange(courses);
+            _context.SaveChanges();
         }
     }
 }

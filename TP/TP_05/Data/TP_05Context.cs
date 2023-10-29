@@ -15,5 +15,6 @@ namespace TP_05.Data
         }
 
         public DbSet<TP_05.Models.Category> Category { get; set; } = default!;
+        public DbSet<TP_05.Models.Course>? Course { get; set; }
     }
 }

@@ -16,6 +16,7 @@ namespace TP_05.Models
         public Boolean State {  get; set; } = true;
         [DisplayName("Creation Date")]
         public DateTime Date {  get; set; } = DateTime.Now;
+        public ICollection<Course>? Courses { get; set; }
     }
 
 }
