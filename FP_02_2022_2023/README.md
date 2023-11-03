@@ -1,6 +1,6 @@
 <h1>Shift 1 - Practical Frequency 1 - 2022/2023</h1>
 
-- This frequency asked for a Web application in ASP.NET Core MVC in charge of managing a list of Students..
+- This frequency asked for a Web application in ASP.NET Core MVC in charge of managing a list of Students.
 - It is possible to add new Students and remove them from the listing.
 - NOTE: The database represented below is not included.
 
