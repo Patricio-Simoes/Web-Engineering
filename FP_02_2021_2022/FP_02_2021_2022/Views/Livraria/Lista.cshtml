@@ -1,0 +1,49 @@
+﻿@model IEnumerable<FP_02_2021_2022.Models.Livro>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<style>
+    td{
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container">
+    <h1>Lista de Livros</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.titulo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.autores)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.editora)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.titulo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.autores)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.editora)
+                </td>
+                <td>
+                    <a class="btn btn-danger" asp-action="Remover" asp-route-id="@item.titulo">Remover</a>
+                </td>
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

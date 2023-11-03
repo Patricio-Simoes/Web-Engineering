@@ -1,0 +1,56 @@
+﻿@model FP_02_2021_2022.Models.Livro
+
+@{
+    ViewData["Title"] = "Inserir";
+}
+
+<div class="container mt-3">
+<h1>Inserir Livro</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Inserir" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="titulo" class="control-label"></label>
+                <input asp-for="titulo" class="form-control" />
+                <span asp-validation-for="titulo" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="autores" class="control-label"></label>
+                <input asp-for="autores" class="form-control" />
+                <span asp-validation-for="autores" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="editora" class="control-label"></label>
+                <input asp-for="editora" class="form-control" />
+                <span asp-validation-for="editora" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="isbn" class="control-label"></label>
+                <input asp-for="isbn" class="form-control" />
+                <span asp-validation-for="isbn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="capa" class="control-label"></label>
+                <input asp-for="capa" type="file" class="form-control" />
+                <span asp-validation-for="capa" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="contracapa" class="control-label"></label>
+                <input asp-for="contracapa" type="file" class="form-control" />
+                <span asp-validation-for="contracapa" class="text-danger"></span>
+            </div>
+                <div class="form-group mt-2">
+                <a class="btn btn-secondary" asp-action="Lista">Voltar</a>
+                <input type="submit" value="Inserir" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
