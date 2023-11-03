@@ -1,0 +1,61 @@
+﻿@model IEnumerable<PAP1_2023_2024.Models.Registo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<style>
+    tr{
+        vertical-align: middle;
+    }
+</style>
+
+<div class="container mt-3">
+    <h1>Lista de Utilizadores</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.username)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.entrada)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.saida)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+    @foreach (var item in Model) {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.username)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.entrada)
+                </td>
+                    @if (item.saida == null)
+                    {
+                        <td>---</td>
+                    }
+                    else{
+                        <td>
+                          @Html.DisplayFor(modelItem => item.saida)
+                        </td>
+                    }
+                    @if (item.saida == null){
+                        <td>
+                            <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.id">Editar</a>
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+            </tr>
+    }
+        </tbody>
+    </table>
+</div>

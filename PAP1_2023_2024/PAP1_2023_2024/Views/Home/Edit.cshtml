@@ -1,0 +1,40 @@
+﻿@model PAP1_2023_2024.Models.Registo
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<div class="container mt-3">
+    <h1>Editar Utilizador</h1>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="id" />
+                <div class="form-group">
+                    <label asp-for="username" class="control-label"></label>
+                    <input asp-for="username" class="form-control" readonly="true"/>
+                    <span asp-validation-for="username" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="entrada" class="control-label"></label>
+                    <input asp-for="entrada" class="form-control" readonly="true"/>
+                    <span asp-validation-for="entrada" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="saida" class="control-label"></label>
+                        <input asp-for="saida" class="form-control" />
+                    <span asp-validation-for="saida" class="text-danger"></span>
+                </div>
+                <div class="form-group mt-2">
+                    <a class="btn btn-secondary" asp-action="Index">Voltar Atrás</a>
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
