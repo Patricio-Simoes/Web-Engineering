@@ -1,0 +1,11 @@
+﻿@model IEnumerable<TP_08.Models.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="container text-center mt-3">
+    <h1>Welcome @Context.Session.GetString("user")!</h1>
+</div>

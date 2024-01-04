@@ -1,0 +1,87 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@if (Context.Request.Cookies["viewMode"] == "dark")
+{
+    <style>
+        body {
+            background-color: #000;
+            color: #FFF;
+        }
+    </style>
+}
+else
+{
+    <style>
+        body {
+            background-color: #FFF;
+            color: #000;
+        }
+    </style>
+}
+<header>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3">
+        <div class="container-fluid">
+            <a class="navbar-brand">TP_08</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <ul class="navbar-nav flex-grow-1">
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddCookies">Add Cookies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="AddSessionVariables">Add Session</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="DeleteCookies">Delete All Cookies</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="DeleteSessionVariables">Delete All Session Variables</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="DeleteSession">Close Session</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="container">
+    <!-- Primeira parte do tutorial, (cookies básicos).-->
+    <div class="text-center">
+        <h1 class="display-4">Web Engineering</h1>
+        <h2>This exercise is only to play a little with cookies and session variables</h2>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
+
+    <h1>Web Cookies in request</h1>
+    @if(Context.Request.Cookies.Count == 0)
+    {
+        <div>No cookies were sent</div>
+    }
+    @foreach(var item in Context.Request.Cookies.Keys)
+    {
+        <div>@item - @Context.Request.Cookies[item]</div>
+    }
+
+    <!-- Segunda parte do tutorial, (cookies de sessão).-->
+    <h1>Session ID</h1>
+    <div>The presentation of this value is used to confirm de reuse of the sessions: <strong>@Context.Session.Id</strong>.</div>
+    @foreach (var item in Context.Session.Keys)
+    {
+        if (item == "StringValue")
+        {
+            <div>@item - @Context.Session.GetString(item)</div>
+        }
+        else
+        {
+            <div>@item - @Context.Session.GetInt32(item)</div>
+        }
+    }
+</div>
