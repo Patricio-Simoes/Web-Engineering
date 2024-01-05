@@ -1,0 +1,45 @@
+﻿@model IEnumerable<FP_02_01_2022_2023.Models.BolsaInvestigacao>
+
+@{
+    ViewData["Title"] = "Lista";
+}
+
+<h1>Bolsas de Investigação</h1>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>
+        <a class="btn btn-primary" asp-action="Adiciona">Criar Nova</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.area)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.area)
+            </td>
+            <td id="Col_@item.id">
+                <a asp-action="Detalhes" asp-route-id="@item.id"
+                data-ajax="true" data-ajax-method="get"
+                data-ajax-mode="replace" data-ajax-update="#Col_@item.id">Detalhes</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

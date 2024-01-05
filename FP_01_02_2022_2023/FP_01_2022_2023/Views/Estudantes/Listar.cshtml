@@ -1,0 +1,56 @@
+﻿@model IEnumerable<FP_01_2022_2023.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container mt-3">
+    <h1>Lista de Alunos</h1>
+    <p>
+        <a class="btn btn-primary" asp-action="Registo">Registar Novo Aluno</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.numero)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.email)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.date)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.numero)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nome)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.email)
+                    </td>
+                    <td>
+                        @{
+                            var age = DateTime.Now.Year - item.date.Year;
+                            @age
+                        }
+                    </td>
+                    <td>
+                        <a class="btn btn-danger" asp-action="Remover" asp-route-id="@item.numero">x</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
