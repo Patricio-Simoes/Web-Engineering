@@ -1,8 +1,0 @@
-{
-  "dependencies": {
-    "mssql1": {
-      "type": "mssql.local",
-      "connectionId": "ConnectionStrings:EW_2021_PAP1_DB_alXXXXX"
-    }
-  }
-}
