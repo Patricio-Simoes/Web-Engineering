@@ -1,0 +1,49 @@
+﻿@model Desafio_02_05.Models.Trip
+
+@{
+    ViewData["Title"] = "Book Trip";
+}
+<style>
+    form{
+        max-width: 750px;
+        margin: 0 auto;
+    }
+
+    form input[type="submit"]{
+        width: 100%;
+    }
+</style>
+
+<div class="container">
+    <h1 class="text-center mt-3">Book a new Trip</h1>
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="location" class="control-label">Location:</label>
+            <input asp-for="location" class="form-control" placeholder="Ex. Italy"/>
+            <span asp-validation-for="location" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="departureDate" class="control-label">Departure Date:</label>
+            <input asp-for="departureDate" class="form-control" />
+            <span asp-validation-for="departureDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="arrivalDate" class="control-label">Arrival Date:</label>
+            <input asp-for="arrivalDate" class="form-control" />
+            <span asp-validation-for="arrivalDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="distance" class="control-label">Distance (km):</label>
+            <input asp-for="distance" class="form-control" placeholder="Ex. 8000"/>
+            <span asp-validation-for="distance" class="text-danger"></span>
+        </div>
+        <div class="form-group mt-2">
+            <input type="submit" value="Create" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
