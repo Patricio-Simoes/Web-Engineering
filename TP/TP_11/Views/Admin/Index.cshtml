@@ -1,0 +1,24 @@
+﻿@model IEnumerable<TP_11.Models.Person>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<form asp-action="Create" data-ajax="true"
+    data-ajax-method="post" data-ajax-mode="replace"
+    data-ajax-update="#tabela" data-ajax-success="sucesso">
+    <input id="inp" type="text" name="NewName" />
+    <input type="submit" value="Create" class="btn btn-primary" />
+</form>
+Date: @DateTime.Now;
+<hr />
+<partial name="Listing" model="Model" />
+<hr />
+Date: @DateTime.Now
+<script>
+    function sucesso() {
+        $("#inp").val("");
+    }
+</script>
